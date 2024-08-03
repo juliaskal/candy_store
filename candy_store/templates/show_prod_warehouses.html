@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Склады ГП</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+    <meta property="og:title" content="Информационная система">
+    <meta property="og:description" content="Информационная система для производства кондитерских изделий">
+    <meta property="og:url" content="https://julias-is.com/">
+  </head>
+
+
+  <body>
+
+  <header style="background-color: rgb(225, 224, 224);">
+    <div class="text-bg-light p-2">
+       <a class="nav-item nav-link" href="/" style="font-size: 25px; padding: 13px 40px;">Главная</a>
+    </div>
+  </header>
+
+  <main>
+
+    <p style="font-size: 25px; padding: 15px 40px;">Склады готовой продукции</p>
+
+  <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Название</th>
+    </tr>
+  </thead>
+    <tbody>
+      {% for prod_wh in prod_warehouses %}
+      <tr>
+        <th scope="row">{{prod_wh.id}}</th>
+        <td>{{prod_wh.warehouse_prod_name}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  </main>
+
+  </body>
+
+</html>

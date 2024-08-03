@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Документ {{doc.doc_prod_in_num}}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <meta property="og:title" content="Информационная система">
+    <meta property="og:description" content="Информационная система для производства кондитерских изделий">
+    <meta property="og:url" content="https://julias-is.com/">
+  </head>
+
+
+  <body>
+
+  <header style="background-color: rgb(225, 224, 224);">
+    <div class="text-bg-light p-2">
+       <a class="nav-item nav-link" href="/" style="font-size: 25px; padding: 13px 40px;">Главная</a>
+    </div>
+  </header>
+
+  <main>
+    <div style="padding: 15px 40px;">
+
+    <p style="font-size: 25px;">Документ о выпуске готовой продукции</p>
+
+    <div style="margin-bottom: 10px;" class="form-group row">
+      <label class="col-sm-2 col-form-label col-form-label-lg">Номер документа:</label>
+      <label class="col-sm-2 col-form-label col-form-label-lg">{{doc.doc_prod_in_num}}</label>
+    </div>
+
+    <div style="margin-bottom: 10px;" class="form-group row">
+      <label class="col-sm-2 col-form-label col-form-label-lg">Дата:</label>
+      <label class="col-sm-2 col-form-label col-form-label-lg">{{doc.doc_prod_in_date}}</label>
+    </div>
+
+    <div style="margin-bottom: 10px;" class="form-group row">
+      <label class="col-sm-2 col-form-label col-form-label-lg">Склад сырья:</label>
+      <label class="col-sm-2 col-form-label col-form-label-lg">{{doc.warehouse_raw}}</label>
+    </div>
+
+    <div style="margin-bottom: 10px;" class="form-group row">
+      <label class="col-sm-2 col-form-label col-form-label-lg">Склад готовой продукции:</label>
+      <label class="col-sm-2 col-form-label col-form-label-lg">{{doc.warehouse_prod}}</label>
+    </div>
+
+    <div style="margin-bottom: 10px;" class="form-group row">
+      <label class="col-sm-2 col-form-label col-form-label-lg">Общая сумма затраченного сырья:</label>
+      <label class="col-sm-2 col-form-label col-form-label-lg">{{doc.raw_sum}} руб</label>
+    </div>
+
+    <div style="margin-bottom: 10px;" class="form-group row">
+      <label class="col-sm-2 col-form-label col-form-label-lg">Общая сумма выпущенной готовой продукции:</label>
+      <label class="col-sm-2 col-form-label col-form-label-lg">{{doc.product_sum}} руб</label>
+    </div>
+    <p style="font-size: 25px;">Выпущенная готовая продукция:</p>
+  </div>
+
+  <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Готовая продукция</th>
+      <th scope="col">Цена готовой продукции</th>
+      <th scope="col">Количество готовой продукции</th>
+    </tr>
+  </thead>
+    <tbody>
+      {% for prod in prods %}
+      <tr>
+        <td scope="row">{{prod.product}}</td>
+        <td>{{prod.product_cost}}</td>
+        <td>{{prod.product_quantity}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <div style="padding: 15px 40px;">
+      <p style="font-size: 25px;">Затраченное сырьё для выпуска готовой продукции:</p>
+  </div>
+
+  <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Сырьё</th>
+      <th scope="col">Цена сырья</th>
+      <th scope="col">Количество сырья</th>
+    </tr>
+  </thead>
+    <tbody>
+      {% for r in raws %}
+      <tr>
+        <td scope="row">{{r.raw}}</td>
+        <td>{{r.raw_cost}}</td>
+        <td>{{r.raw_quantity}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <div style="padding: 15px 40px;">
+    <a href="/show_doc_prod_in" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Назад</a>
+  </div>
+
+  </main>
+
+  </body>
+
+</html>
